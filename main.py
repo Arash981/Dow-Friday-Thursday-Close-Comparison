@@ -17,15 +17,15 @@ dow_data = yf.download(ticker_symbol, start=start_date, end = end_date)
 # print(dow_data[['Open', 'Close']])
 # Extract day of the week from the index and count occurrences of Fridays (weekday=4)
 
-#how many times friday is lower than thursday
+#how many times Friday is lower than Thursday
 
-# Filter and store only the rows corresponding to Thursday, Fridays and following monday
+# Filter and store only the rows corresponding to Thursday, Fridays and following Monday
 thursdays_data = dow_data[dow_data.index.dayofweek == 3][['Close']]
 fridays_data = dow_data[dow_data.index.dayofweek == 4][['Close']]
 mondays_data = dow_data[dow_data.index.dayofweek == 0][['Close']]
 
-#how many times friday close is less than thursday close 
-#store thurdays close in array
+#how many times Friday close is less than Thursday close 
+#store Thursdays close in array
 thursday_close_array = []
 friday_close_array 	 = []
 monday_close_array   = []
@@ -39,9 +39,6 @@ for close_time in fridays_data['Close']:
 
 for close_time in mondays_data['Close']:
 	monday_close_array.append(close_time)
-
-#problem for monday closing data since it is not the same lenth as Thursdat and frida
-
 
 # Ensure both arrays have the same length
 if len(thursday_close_array) == len(friday_close_array):
